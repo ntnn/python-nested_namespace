@@ -1,0 +1,16 @@
+[MESSAGES CONTROL]
+# C0411 Order of imports
+#   It makes more sense to order imports logically by task, rather than
+#   by origin
+# C0330 continuation
+#  pep8 already checks to spec, pylint checks for an opinionated style
+disable = C0411,C0330,R0903
+
+[BASIC]
+# log -> logging
+# i,j,k,l,_ -> iterator variables
+# rc, _rc -> return code
+good-names = log,i,j,k,l,_,rc,_rc
+
+[MASTER]
+ignore-patterns = .*_test.py
