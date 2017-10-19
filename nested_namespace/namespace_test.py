@@ -31,3 +31,11 @@ class TestNestedNamespace:
 
         assert ns.a[0].__dict__ == d['a'][0]
         assert ns.b == d['b']
+
+    def test_as_dict(self):
+        d = {'a': [{'b': 1}], 'b': 2, 'c': {'d': 1, 'e': 2}}
+        ns = NestedNamespace(**d)
+
+        new_d = ns.as_dict()
+
+        assert new_d == d
