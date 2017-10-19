@@ -1,16 +1,14 @@
 """ Recursively set namespace. """
 
-from types import SimpleNamespace
 
-
-class NestedNamespace(SimpleNamespace):
+class NestedNamespace(object):
     """ Simple class to transform nested dicts to nested namespaces. """
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
     def __setattr__(self, name, value):
-        SimpleNamespace.__setattr__(self, name, self.transform(value))
+        object.__setattr__(self, name, self.transform(value))
 
     @staticmethod
     def transform(target):
