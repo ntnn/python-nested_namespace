@@ -10,6 +10,9 @@ class NestedNamespace(object):
     def __setattr__(self, name, value):
         object.__setattr__(self, name, self.transform(value))
 
+    def __getitem__(self, name):
+        return self.__dict__[name]
+
     @staticmethod
     def transform(target):
         """ Helper function to correctly transform values. """

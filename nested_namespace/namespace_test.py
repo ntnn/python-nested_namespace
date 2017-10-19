@@ -24,6 +24,7 @@ class TestNestedNamespace:
         assert ns.a == d['a']
         assert ns.b.c == d['b']['c']
         assert ns.b.d == d['b']['d']
+        assert ns['b']['d'] == d['b']['d']
 
     def test__init__list_member(self):
         d = {'a': [{'b': 1}], 'b': 2}
